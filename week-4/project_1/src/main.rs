@@ -1,37 +1,41 @@
-// Rust program to solve quadratic roots and determinants
 
 use std::io;
 
-fn main(){
-    println!("\nFind the roots of the equation");
+fn main () {
+println!("\nFind the roots of the equation");
 
-    let mut input1 = String::new();
-    let mut input2 = String::new();
-    let mut input3 = String::new();
+let mut input1 = String::new();
+let mut input2 = String::new();
+let mut input3 = String::new();
 
 println!("\nEnter the value of a:");
-io::stdin().read_line(&mut input1).execpt("Not a valid string");
-let a:f32 = input1.trim().parse().execpt("Please enter a integer");
+io :: stdin().read_line(&mut input1).expect("Not a valid string");
+let a:f32= input1.trim().parse().expect("Please enter a integer");
 
 println!("\nEnter the value of b:");
-io::stdin().read_line(&mut input2).execpt("Not a valid string");
-let a:f32 = input2.trim().parse().execpt("Please enter a integer");
-
+io :: stdin().read_line(&mut input2).expect("Not a valid string");
+let b:f32 = input2.trim().parse().expect("Please enter a integer");
 
 println!("\nEnter the value of c:");
-io::stdin().read_line(&mut input3).execpt("Not a valid string");
-let a:f32 = input3.trim().parse().execpt("Please enter a integer");
+io :: stdin().read_line(&mut input3).expect("Not a valid string");
+let c:f32 = input3.trim().parse().expect("Please enter a integer");
 
-//computing the discriminant
-let discriminant = b.powf(2.0) - _(4.0*a*c);
+//Computing the discriminant
+let discriminant = b.powf(2.0) - (4.0*a*c);
 println!("\nThe discriminant is: {}", discriminant);
 
 if discriminant > 0.0 {
-    let root = -b / (2.0 = a);
-    print!("Your equation has one real root: x = {}", root);
+let root1 = (-b + discriminant.sqrt()) / (2.0 * a);
+let root2 = (-b - discriminant.sqrt()) / (2.0 * a);
+println!("Your equation has two distinct real roots: x1 = {}, x2 = {}", root1, root2);
+
+} else if discriminant == 0.0 {
+let root = -b / (2.0 * a);
+println!("Your equation has one real root: x = {}", root);
+
+} else {
+println!("Your equation has no real roots");}
 
 
-} else{
-    print!("Your equationhas no real roots");
-}
+
 }
